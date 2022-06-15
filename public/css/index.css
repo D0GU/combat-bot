@@ -1,0 +1,45 @@
+
+.vertical {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.info_container {
+    width: 75%;
+
+  }
+
+.container_color {
+    background-color: white;
+}
+
+.page_title {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.member_width {
+    width: 300px;
+
+    
+}
+.list_indent {
+    text-indent: 10px;
+}
+
+/* body {
+    background-image: url('https://cdn.discordapp.com/attachments/930471354199863306/986418653006295050/background.gif');
+    background-size: cover;
+} */
+
+body {
+    background-image: url("https://cdn.discordapp.com/attachments/930471354199863306/986418653006295050/background.gif");
+    background-size: cover;
+}
