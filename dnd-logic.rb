@@ -118,6 +118,7 @@ module Logic
 
 
     command :skill do |event,char1,char2,*action|
+        event.message.delete 
         char_hash = JSON.parse(File.read("char.json"))
         attacker = get_id(char1)
         reciever = get_id(char2)
@@ -158,6 +159,7 @@ module Logic
 
 
     command :action do |event,char1,char2|
+        event.message.delete 
         char_hash = JSON.parse(File.read("char.json"))
         attacker = get_id(char1)
         reciever = get_id(char2)
@@ -169,7 +171,19 @@ module Logic
             
     end
 
+    command :pass do |event|
+        $actions_taken["primary"] = 0
+        $actions_taken["secondary"] = 2
+        
+        event.respond "#{$initiative_final[attacker]["name"]} has passed on their turn!"
+
+        initiative_tracker(event,"secondary")
+  
+            
+    end
+
     command :h_action do |event,char1,char2|
+        event.message.delete 
         char_hash = JSON.parse(File.read("char.json"))
         attacker = get_id(char1)
         reciever = get_id(char2)
