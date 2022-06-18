@@ -258,7 +258,7 @@ module Oneshot
     end
 
     command :set_turn do |event,index|
-        $initiative_order = index
+        $current_turn = index
     end
 
     command :status_viewer do |event|

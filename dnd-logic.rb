@@ -24,12 +24,13 @@ def initiative_tracker(event,type)
     if $actions_taken["primary"] + $actions_taken["secondary"] == 2
 
         $current_turn +=1
-        ap_regen()
+        
 
         if $current_turn >= $initiative_order.length
             $actions_taken["primary"] = 0
             $actions_taken["secondary"] = 0
             $current_turn = 0
+            ap_regen()
             event.respond "It's #{$initiative_final[$initiative_order[$current_turn]]["name"]}'s turn!"
         else
             $actions_taken["primary"] = 0
@@ -172,11 +173,10 @@ module Logic
     end
 
     command :pass do |event|
-        $actions_taken["primary"] = 0
-        $actions_taken["secondary"] = 2
         
         event.respond "#{$initiative_final[attacker]["name"]} has passed on their turn!"
 
+        initiative_tracker(event,"secondary")
         initiative_tracker(event,"secondary")
   
             
