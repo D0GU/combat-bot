@@ -259,6 +259,8 @@ module Oneshot
 
     command :set_turn do |event,index|
         $current_turn = index
+        $actions_taken["primary"] = 0
+        $actions_taken["secondary"] = 0
     end
 
     command :status_viewer do |event|

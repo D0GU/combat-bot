@@ -172,11 +172,13 @@ module Logic
             
     end
 
-    command :pass do |event|
+    command :skip do |event|
         
         event.respond "#{$initiative_final[attacker]["name"]} has passed on their turn!"
 
-        initiative_tracker(event,"secondary")
+        $actions_taken["primary"] = 1
+        $actions_taken["secondary"] = 0
+
         initiative_tracker(event,"secondary")
   
             
@@ -196,7 +198,6 @@ module Logic
             event.respond "H-Action failed!"
         end
 
-        initiative_tracker(event,"secondary")
   
             
     end
